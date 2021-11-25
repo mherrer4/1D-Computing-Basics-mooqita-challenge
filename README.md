@@ -3,3 +3,5 @@
 Test update
 
 > Created empty shell script file.
+
+> Added HTML from given index.html file to shell script.
