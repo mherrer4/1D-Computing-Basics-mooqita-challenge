@@ -3,9 +3,9 @@
 # This is a bash script that makes an HTML index to display all images
 # downloaded from website.tar.gz
 
-# Create variables for easier reference later in script
+# Create array of all files in images folder
 
-image_directory=/home/markherrera/Desktop/1D-Computing-Basics-mooqita-challenge/challenge-repo/website/images
+image_directory=(/home/markherrera/Desktop/1D-Computing-Basics-mooqita-challenge/challenge-repo/website/images/*)
 
 # Remove spaces from image filenames
 
@@ -17,14 +17,10 @@ image_directory=/home/markherrera/Desktop/1D-Computing-Basics-mooqita-challenge/
 
 ##^^This is commented out to avoid rerunning during testing of other parts of the script.
 
-# Create array of all files in images folder
-
-image_files=`find $image_directory -type f | sort`
-
 # Loop through array of image file names and print each one
 
 counter=0
-for i in ${image_files[@]} ; do
+for i in ${image_directory[@]} ; do
 	echo "$i"
 	counter=$((counter+1))
 done
@@ -35,7 +31,14 @@ echo "Counter:"
 echo "There are $counter image files."
 echo ""
 echo "Length of image_files array:"
-echo ${#image_files[@]}
+echo ${#image_directory[@]}
+
+# List the first three items in the image_files array
+
+echo ""
+echo ${image_directory[0]}
+echo ${image_directory[1]}
+echo ${image_directory[2]}
 
 # Create file using HTML from given index.html file
 
